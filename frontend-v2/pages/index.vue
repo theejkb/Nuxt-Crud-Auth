@@ -4,7 +4,7 @@
       <h1 class="title">Mes tickets</h1>
     </div>
     <div class="actions">
-      <nuxt-link class="btn btn-default" @click="fetch" :to="{ path: '/index_users' }">
+      <nuxt-link class="btn btn-default" :to="{ path: '/index_users' }">
         Go to users
       </nuxt-link>
       <nuxt-link class="btn btn-default" :to="{ path: '/create_ticket' }">
@@ -41,16 +41,16 @@
           </td>
           <td>{{ ticket.description }}</td>
           <td>{{ ticket.status }}</td>
-          <td>{{ ticket.admin.firstname + ' ' + ticket.admin.lastname}}</td>
-          <td>{{ ticket.user.firstname + ' ' + ticket.user.lastname}}</td>
+          <td>{{ ticket.admin.firstname + " " + ticket.admin.lastname }}</td>
+          <td>{{ ticket.user.firstname + " " + ticket.user.lastname }}</td>
           <td>
-            <nuxt-link class="btn btn-warning btn-xs" :to="{ path: '/edit_ticket' }">
+            <nuxt-link
+              class="btn btn-warning btn-xs"
+              :to="{ path: '/edit_ticket' }"
+            >
               <i class="far fa-edit"></i>Edit
             </nuxt-link>
-            <div
-                class="btn btn-warning btn-xs"
-                @click="sendMail(ticket)"
-            >
+            <div class="btn btn-warning btn-xs" @click="sendMail(ticket)">
               <i class="far fa-edit"></i>Send Email
             </div>
             <div
@@ -59,9 +59,7 @@
             >
               <span class="glyphicon glyphicon-remove"></span>
               Delete
-              </div>
-
-
+            </div>
           </td>
         </tr>
       </tbody>
@@ -76,7 +74,20 @@ export default {
   created() {},
   layout: "vue-crud",
   data() {
-    return { searchKey: "", tickets: {} };
+    return { searchKey: "", tickets: {
+      id: "0",
+      name: "Crud",
+      description: "build an crud app with nuxt",
+      status: "En cours",
+      admin: {
+        firstname : "guest",
+        lastname : "1"
+      },
+      user: {
+        firstname : "guest",
+        lastname : "2"
+      }
+    } };
   },
   computed: {
     filteredtickets() {
