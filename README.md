@@ -2,6 +2,8 @@
 
 Simple CRUD App for tickets with authentification/login
 
+<img src="./dist/img/home.png"/>
+
  ### Step to launch this project : 
 
 
@@ -18,3 +20,5 @@ $ npm run dev
 # build for production and launch server
 $ npm run build
 $ npm start
+
+
