@@ -1,7 +1,7 @@
 <template>
   <section>
-    <div class="actions">
-      <nuxt-link class="btn btn-default" @click="fetch" :to="{ path: '/' }">
+    <div class="container actions">
+      <nuxt-link class="btn btn-default" :to="{ path: '/' }">
         Go to tickets
       </nuxt-link>
       <nuxt-link class="btn btn-default" :to="{ path: '/create' }">
@@ -37,13 +37,16 @@
           <td>
             <div>{{ user.id }}</div>
           </td>
-          <td>{{ user.firstname + ' ' + user.lastname }}</td>
+          <td>{{ user.firstname + " " + user.lastname }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.role }}</td>
           <td>{{ user.telephone }}</td>
           <td>{{ user.username }}</td>
           <td>
-            <nuxt-link class="btn btn-warning btn-xs" :to="{ path: '/edit_user' }">
+            <nuxt-link
+              class="btn btn-warning btn-xs"
+              :to="{ path: '/edit_user' }"
+            >
               <i class="far fa-edit"></i>Edit
             </nuxt-link>
             <div
@@ -65,10 +68,10 @@ import Axios from "Axios";
 export default {
   async fetch() {
     // Fetche data from API local 
-    this.users = await fetch(
-      "http://localhost:8080/users/all"
-    ).then((res) => res.json());
-    console.log(this.users);
+    // this.users = await fetch(
+    //   "http://localhost:8080/users/all"
+    // ).then((res) => res.json());
+    // console.log(this.users);
   },
   created() {
   },

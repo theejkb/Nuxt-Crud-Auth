@@ -35,33 +35,70 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="ticket in tickets" :key="ticket.id">
-          <td>
+        <tr>
+          <!-- <tr v-for="ticket in tickets" :key="ticket.id"> -->
+          <!-- <td>
             <div>{{ ticket.id + " - " + ticket.name }}</div>
           </td>
           <td>{{ ticket.description }}</td>
           <td>{{ ticket.status }}</td>
           <td>{{ ticket.admin.firstname + " " + ticket.admin.lastname }}</td>
           <td>{{ ticket.user.firstname + " " + ticket.user.lastname }}</td>
+          <td> -->
           <td>
+            <div>1 - Crud</div>
+          </td>
+          <td>Build an App with Nuxt</td>
+          <td>Progress...</td>
+          <td>Steven</td>
+          <td>Antoine</td>
+          <td>
+            <div class="btn margin-5 btn-info btn-xs" @click="sendMail(ticket)">
+              <i class="far fa-edit"></i>Send Email
+            </div>
             <nuxt-link
-              class="btn btn-warning btn-xs"
+              class="margin-5 btn btn-warning btn-xs"
               :to="{ path: '/edit_ticket' }"
             >
               <i class="far fa-edit"></i>Edit
             </nuxt-link>
-            <div class="btn btn-warning btn-xs" @click="sendMail(ticket)">
-              <i class="far fa-edit"></i>Send Email
-            </div>
+
             <div
               @click="deleteTicketById(ticket.id)"
-              class="btn delete btn-danger btn-xs"
+              class="btn margin-5 delete btn-danger btn-xs"
             >
-              <span class="glyphicon glyphicon-remove"></span>
-              Delete
+              <span class="glyphicon"></span>
             </div>
           </td>
         </tr>
+        <tr>
+          <td>
+            <div>2 - API</div>
+          </td>
+          <td>Build an API with Java Spring</td>
+          <td>Finish</td>
+          <td>Antoine</td>
+          <td>Steven</td>
+          <td>
+            <div class="btn margin-5 btn-info btn-xs" @click="sendMail(ticket)">
+              <i class="far fa-edit"></i>Send Email
+            </div>
+            <nuxt-link
+              class="margin-5 btn btn-warning btn-xs"
+              :to="{ path: '/edit_ticket' }"
+            >
+              <i class="far fa-edit"></i>Edit
+            </nuxt-link>
+
+            <div
+              @click="deleteTicketById(ticket.id)"
+              class="btn margin-5 delete btn-danger btn-xs"
+            >
+              <span class="glyphicon"></span>
+            </div>
+          </td>
+        </tr>
+        <!-- </tr> -->
       </tbody>
     </table>
   </section>
@@ -74,20 +111,7 @@ export default {
   created() {},
   layout: "vue-crud",
   data() {
-    return { searchKey: "", tickets: {
-      id: "0",
-      name: "Crud",
-      description: "build an crud app with nuxt",
-      status: "En cours",
-      admin: {
-        firstname : "guest",
-        lastname : "1"
-      },
-      user: {
-        firstname : "guest",
-        lastname : "2"
-      }
-    } };
+    return { searchKey: "", tickets: {} };
   },
   computed: {
     filteredtickets() {
@@ -127,6 +151,9 @@ export default {
 };
 </script>
 <style>
+.margin-5 {
+  margin-right: 5px;
+}
 .title {
   text-align: center;
 }
